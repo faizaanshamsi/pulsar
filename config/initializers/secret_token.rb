@@ -9,4 +9,18 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Pulsar::Application.config.secret_key_base = 'db558d6bfcfa593ebe88d8f0a22d1671d2c4b6df8c45a1c7c6661a6f9a18fde6fea48bde96d9c00a4651d6cb1fb58156d401d0193f1e8abe418ca7cbceb70754'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Pulsar::Application.config.secret_key_base = secure_token
