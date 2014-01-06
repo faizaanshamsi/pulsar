@@ -12,4 +12,8 @@ describe Learning do
     it { should_not have_valid(:content).when(nil, "") }
   end
 
+  describe "Association Tests" do
+    it { should have_many(:comments).dependent(:destroy) }
+  end
+
 end
