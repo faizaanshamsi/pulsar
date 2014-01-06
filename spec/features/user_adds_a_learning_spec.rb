@@ -29,6 +29,7 @@ feature "User creates a learning", %q{
   context "with invalid input" do
     it "throws an error" do
       count = Learning.all.count
+      visit new_learning_path
       fill_in "URL", with: "screw you hippie"
       click_on "Share"
 
