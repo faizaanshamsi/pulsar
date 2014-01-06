@@ -1,8 +1,12 @@
 <%= @learning.content %>
 
-<%= simple_form_for @comment do |f| %>
+<% @comments.each do |comment| %>
+<p><%= comment.body %></p>
+<% end %>
 
-  <%= f.input :comment %>
+<%= simple_form_for [@learning, @comment] do |f| %>
+
+  <%= f.input :body, label: 'Comment' %>
   <%= f.button :submit, 'Submit Comment' %>
 
 <% end %>

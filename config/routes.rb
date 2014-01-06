@@ -1,3 +1,5 @@
 Pulsar::Application.routes.draw do
-  resources :learnings
+  resources :learnings do
+    resources :comments
+  end
 end

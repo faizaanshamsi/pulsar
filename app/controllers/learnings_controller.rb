@@ -17,6 +17,8 @@ class LearningsController < ApplicationController
 
   def show
     @learning = Learning.find(params[:id])
+    @comment = Comment.new
+    @comments = @learning.comments
   end
 
   private
