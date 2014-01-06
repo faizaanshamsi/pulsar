@@ -6,11 +6,10 @@ class CommentsController < ApplicationController
     @comment.learning = @learning
     if @comment.save
       flash[:notice] = "Good job!"
-      redirect_to learning_path(@learning)
     else
       flash[:error] = "Error! Comment not saved.  "
-      render :new
     end
+    redirect_to learning_path(@learning)
   end
 
   def new

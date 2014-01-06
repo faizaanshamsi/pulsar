@@ -23,6 +23,14 @@ feature 'user comments on learning', %q{
     expect(page).to have_content 'woot!'
   end
 
-  scenario 'invalid comment with no body text'
+  scenario 'invalid comment with no body text' do
+    learning = FactoryGirl.create(:learning)
+
+    visit learning_path(learning)
+    click_on 'Submit Comment'
+
+    expect(page).to have_content learning.content
+    expect(page).to have_content 'Error'
+  end
 
 end
