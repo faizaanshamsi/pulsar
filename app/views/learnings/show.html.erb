@@ -1,1 +1,8 @@
 <%= @learning.content %>
+
+<%= simple_form_for @comment do |f| %>
+
+  <%= f.input :comment %>
+  <%= f.button :submit, 'Submit Comment' %>
+
+<% end %>
