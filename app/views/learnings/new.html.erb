@@ -1,0 +1,7 @@
+<h1>One Thing I Learned</h1>
+
+<%= simple_form_for @learning do |f| %>
+  <%= f.input :content, label: 'I learned' %>
+  <%= f.input :url, label: 'URL' %>
+  <%= f.button :submit, 'Share' %>
+<% end %>
