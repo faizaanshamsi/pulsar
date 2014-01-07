@@ -4,10 +4,10 @@ class UsersController < ApplicationController
     @user = User.find_or_create_by(user_params)
     if @user.save
       flash[:notice] = "Welcome to Pulsar."
-      redirect_to new_learning_path
+      redirect_to root_path
     else
       flash[:error] = "Unable to authenticate."
-      redirect_to new_learning_path
+      redirect_to root_path
     end
   end
 
