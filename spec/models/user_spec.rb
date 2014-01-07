@@ -12,14 +12,21 @@ describe User do
   describe "Validation Tests" do
     it { should have_valid(:github_uuid).when("Blah blah") }
     it { should_not have_valid(:github_uuid).when(nil, "") }
+
+    # it { should validate_uniqueness_of(:github_uuid) }
+
     it { should have_valid(:name).when("Blah blah") }
     it { should_not have_valid(:name).when(nil, "") }
+
+    # it { should validate_uniqueness_of(:display_name) }
+
     it { should have_valid(:github_token).when("Blah blah") }
     it { should_not have_valid(:github_token).when(nil, "") }
   end
 
-  # describe "Association Tests" do
-  #   it { should have_many(:learnings).dependent(:destroy) }
-  # end
+  describe "Association Tests" do
+    it { should have_many(:learnings) }
+    it { should have_many(:comments) }
+  end
 
 end
