@@ -33,14 +33,13 @@ ActiveRecord::Schema.define(version: 20140107195736) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "github_uuid",  null: false
+    t.string   "github_uid",   null: false
     t.string   "name",         null: false
     t.string   "display_name"
-    t.string   "github_token", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["github_uuid"], name: "index_users_on_github_uuid", unique: true, using: :btree
+  add_index "users", ["github_uid"], name: "index_users_on_github_uid", unique: true, using: :btree
 
 end
