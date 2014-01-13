@@ -16,6 +16,7 @@ describe Comment do
 
   describe "Association Tests" do
     it { should belong_to :learning }
+    it { should belong_to :user }
   end
 
 end

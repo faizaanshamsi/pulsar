@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'simple_form'
 
+gem 'omniauth-github', git: 'git://github.com/intridea/omniauth-github.git'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -43,6 +45,7 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'capybara'
+  gem 'dotenv-rails'
 end
 
 group :development do

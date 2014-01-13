@@ -1,5 +1,6 @@
 class LearningsController < ApplicationController
 
+
   def create
     @learning = Learning.new(learning_params)
     if @learning.save
