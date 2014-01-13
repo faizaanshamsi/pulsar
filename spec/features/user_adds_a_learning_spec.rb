@@ -15,6 +15,10 @@ feature "User creates a learning", %q{
   context "with valid input" do
     it "records a learning" do
       count = Learning.all.count
+      user = FactoryGirl.create(:user)
+      set_omniauth(user)
+      visit root_path
+      click_link_or_button 'Sign In'
       visit new_learning_path
       fill_in "I learned", with: "Lorem ipsum."
       fill_in "URL", with: "http://www.example.com"
@@ -22,6 +26,7 @@ feature "User creates a learning", %q{
 
       expect(page).to have_content("Lorem ipsum.")
       expect(Learning.all.count).to eq(count + 1)
+      expect(Learning.last.user).to eq(user)
     end
 
   end
@@ -37,6 +42,12 @@ feature "User creates a learning", %q{
       expect(Learning.all.count).to eq(count)
     end
 
+  end
+
+  context "not logged in" do
+    it "doesn't find" do
+      expect { visit new_learning_path }.to raise_error(ActionController::RoutingError, "Not Found")
+    end
   end
 
 end
