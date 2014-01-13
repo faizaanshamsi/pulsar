@@ -3,10 +3,10 @@ class UsersController < ApplicationController
   def create
     @user = User.find_or_create_by(user_params)
     if @user.save
-      flash[:notice] = "Welcome to Pulsar."
+      flash[:notice] = t('.success')
       redirect_to root_path
     else
-      flash[:error] = "Unable to authenticate."
+      flash[:error] = t('.failure')
       redirect_to root_path
     end
   end
