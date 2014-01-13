@@ -12,25 +12,40 @@ feature 'user comments on learning', %q{
 # * If I do not specify body text, an error is displayed
 # * If I specify body text, the comment is saved and  viewable on the learning’s page
 
-  scenario 'add valid comment to posting' do
-    learning = FactoryGirl.create(:learning)
+  describe "add valid comment to posting" do
+    it "saves the comment" do
+      count = Comment.count
+      user = FactoryGirl.create(:user)
+      set_omniauth(user)
+      visit root_path
+      click_link_or_button 'Sign In'
+      learning = FactoryGirl.create(:learning, user: user)
+      visit learning_path(learning)
+      fill_in 'Comment', with: 'woot!'
+      click_on 'Submit Comment'
 
-    visit learning_path(learning)
-    fill_in 'Comment', with: 'woot!'
-    click_on 'Submit Comment'
-
-    expect(page).to have_content learning.content
-    expect(page).to have_content 'woot!'
+      expect(page).to have_content learning.content
+      expect(page).to have_content 'woot!'
+      expect(Comment.count).to eq(count + 1)
+      expect(Comment.last.user).to eq(user)
+    end
   end
 
-  scenario 'invalid comment with no body text' do
-    learning = FactoryGirl.create(:learning)
+  describe "invalid comment with no body text" do
+    it "does not save the comment" do
+      count = Comment.count
+      user = FactoryGirl.create(:user)
+      set_omniauth(user)
+      visit root_path
+      click_link_or_button 'Sign In'
+      learning = FactoryGirl.create(:learning, user: user)
+      visit learning_path(learning)
+      click_on 'Submit Comment'
 
-    visit learning_path(learning)
-    click_on 'Submit Comment'
-
-    expect(page).to have_content learning.content
-    expect(page).to have_content 'Error'
+      expect(page).to have_content learning.content
+      expect(page).to have_content 'Error'
+      expect(Comment.count).to eq(count)
+    end
   end
 
 end
