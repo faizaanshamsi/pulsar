@@ -17,9 +17,11 @@ describe GithubAuthenticator do
     expect(user).to be_valid
   end
 
+  it "empty env_hash parameter" do
+    empty_hash = {}
 
-  it "malformed env_hash parameter"
-
-  it "empty env_hash parameter"
+    user = User.new(GithubAuthenticator.authenticate(empty_hash))
+    expect(user).to_not be_valid
+  end
 
 end
