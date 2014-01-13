@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     @learning = Learning.find(params[:learning_id])
     @comment = Comment.new(comment_params)
     @comment.learning = @learning
+    @comment.user = current_user
     if @comment.save
       flash[:notice] = "Good job!"
     else
