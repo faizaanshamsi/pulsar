@@ -14,10 +14,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params['user'] = {}
-    params['user']['name'] = env['omniauth.auth']['info']['nickname']
-    params['user']['display_name'] = env['omniauth.auth']['info']['nickname']
-    params['user']['github_uid'] = env['omniauth.auth']['uid']
+    params = GithubAuthenticator.authenticate(env['omniauth.auth'], params)
+    binding.pry
     params.require(:user).permit(:github_uid, :name, :display_name)
   end
 

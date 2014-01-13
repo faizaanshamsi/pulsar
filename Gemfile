@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'simple_form'
 
-gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
+gem 'omniauth-github', git: 'git://github.com/intridea/omniauth-github.git'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
