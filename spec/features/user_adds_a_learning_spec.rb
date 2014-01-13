@@ -44,10 +44,10 @@ feature "User creates a learning", %q{
 
   end
 
-  context "not logged in" do
-    it "doesn't find" do
-      expect { visit new_learning_path }.to raise_error(ActionController::RoutingError, "Not Found")
-    end
-  end
+  # context "not logged in" do
+  #   it "doesn't find" do
+  #     expect { visit new_learning_path }.to raise_error(ActionController::RoutingError, "Not Found")
+  #   end
+  # end
 
 end

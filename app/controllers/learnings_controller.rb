@@ -13,11 +13,7 @@ class LearningsController < ApplicationController
   end
 
   def new
-    if current_user == nil
-      raise ActionController::RoutingError.new('Not Found')
-    else
-      @learning = Learning.new
-    end
+    @learning = Learning.new
   end
 
   def show
