@@ -22,8 +22,8 @@ describe User do
   end
 
   describe "Association Tests" do
-    it { should have_many(:learnings) }
-    it { should have_many(:comments) }
+    it { should have_many(:learnings).dependent(:destroy) }
+    it { should have_many(:comments).dependent(:destroy) }
   end
 
 end
