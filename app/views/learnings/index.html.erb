@@ -1,5 +1,7 @@
 <p><%= link_to 'One Thing I Learned...', new_learning_path %></p>
 
-<% @recent_learnings.each do |learning| %>
-  <p><%= learning.content %> &emdash; <%= learning.user.display_name %></p>
-<% end %>
+<%- unless @recent_learnings == nil -%>
+  <% @recent_learnings.each do |learning| %>
+    <p><%= learning.content %> &mdash; <%= learning.user.display_name %></p>
+  <% end %>
+<%- end -%>
