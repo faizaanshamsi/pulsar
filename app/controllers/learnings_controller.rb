@@ -20,6 +20,7 @@ class LearningsController < ApplicationController
     @learning = Learning.find(params[:id])
     @comment = Comment.new
     @comments = @learning.comments
+    @user = current_user
   end
 
   private

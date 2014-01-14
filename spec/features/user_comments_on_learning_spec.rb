@@ -26,6 +26,7 @@ feature 'user comments on learning', %q{
 
       expect(page).to have_content learning.content
       expect(page).to have_content 'woot!'
+      expect(page).to have_content user.display_name
       expect(Comment.count).to eq(count + 1)
       expect(Comment.last.user).to eq(user)
     end
