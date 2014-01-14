@@ -1,8 +1,8 @@
 class LearningsController < ApplicationController
 
-
   def create
     @learning = Learning.new(learning_params)
+    @learning.user = current_user
     if @learning.save
       flash[:notice] = "Good job!"
       redirect_to learning_path(@learning)
@@ -25,7 +25,7 @@ class LearningsController < ApplicationController
   private
 
   def learning_params
-    params.require(:learning).permit(:content, :url)
+    params.require(:learning).permit(:content, :url, :user_id)
   end
 
 end
