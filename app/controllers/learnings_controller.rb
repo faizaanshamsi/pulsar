@@ -12,6 +12,10 @@ class LearningsController < ApplicationController
     end
   end
 
+  def index
+    @recent_learnings = Learning.order(:created_at).limit(10)
+  end
+
   def new
     @learning = Learning.new
   end
