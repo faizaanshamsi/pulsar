@@ -26,6 +26,7 @@ feature 'user likes a learning', %q{
       expect(page).to have_content learning.content
       expect(page).to_not have_button 'Like'
       expect(page).to have_button 'Unlike'
+      expect(page).to have_content(count + 1)
       expect(Like.count).to eq(count + 1)
       expect(Like.last.user).to eq(user)
       expect(Like.last.learning).to eq(learning)

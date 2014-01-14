@@ -19,7 +19,7 @@ describe Like do
 
   describe "Association Tests" do
     it { should belong_to(:user) }
-    it { should belong_to(:learning) }
+    it { should belong_to(:learning).counter_cache }
   end
 
 end

@@ -1,4 +1,6 @@
-<%= @learning.content %>
+<p><%= @learning.content %></p>
+
+<p>+<%= @learning.likes.size %></p>
 
 
 <%- if @learning.like_exists?(@user) -%>

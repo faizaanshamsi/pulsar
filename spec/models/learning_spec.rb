@@ -5,6 +5,7 @@ describe Learning do
   describe "Database Tests" do
     it { should have_db_column(:content).of_type(:text) }
     it { should have_db_column(:url).of_type(:string) }
+    it { should have_db_column(:likes_count).of_type(:integer) }
   end
 
   describe "Validation Tests" do
