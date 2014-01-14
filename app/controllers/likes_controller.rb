@@ -5,4 +5,11 @@ class LikesController < ApplicationController
     @like.save
     redirect_to learning_path(Learning.find(params[:learning_id]))
   end
+
+  def destroy
+    @like = Like.find(params[:id])
+    @like.destroy
+    redirect_to learning_path(Learning.find(params[:learning_id]))
+  end
+
 end
