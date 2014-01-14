@@ -14,6 +14,7 @@ describe Learning do
 
   describe "Association Tests" do
     it { should have_many(:comments).dependent(:destroy) }
+    it { should have_many(:likes).dependent(:destroy) }
   end
 
 end

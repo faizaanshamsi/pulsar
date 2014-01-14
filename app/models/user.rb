@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
 
   has_many :learnings, inverse_of: :user, dependent: :destroy
   has_many :comments, inverse_of: :user, dependent: :destroy
+  has_many :likes, inverse_of: :user, dependent: :destroy
 end
