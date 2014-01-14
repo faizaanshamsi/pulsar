@@ -1,5 +1,7 @@
 <%= @learning.content %>
 
+<%= button_to 'Like', learning_likes_path(@learning), action: :create, method: :post %>
+
 <% @comments.each do |comment| %>
 <p><%= comment.body %></p>
 <% end %>

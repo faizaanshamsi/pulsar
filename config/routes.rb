@@ -1,5 +1,6 @@
 Pulsar::Application.routes.draw do
   resources :learnings do
+    resources :likes, only:[:create, :destroy]
     resources :comments
   end
 
