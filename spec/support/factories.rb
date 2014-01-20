@@ -1,14 +1,19 @@
 FactoryGirl.define do
 
   factory :user do
-    github_uid '1234'
+    sequence(:github_uid) { |n| "1234#{n}" }
     name 'foo'
-    display_name 'foo'
+    sequence(:display_name) { |n| "username #{n}" }
   end
 
   factory :learning do
     user
     content 'awesome stuff'
+  end
+
+  factory :like do
+    user
+    learning
   end
 
 end
