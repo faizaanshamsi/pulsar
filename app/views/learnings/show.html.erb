@@ -1,7 +1,16 @@
-<%= @learning.content %>
+<p><%= @learning.content %></p>
+
+<p>+<%= @learning.likes.size %></p>
+
+
+<%- if @learning.like_exists?(@user) -%>
+  <%= button_to 'Unlike', learning_like_path(@learning, @learning.find_like(@user)), action: :destroy, method: :delete %>
+<%- else -%>
+  <%= button_to 'Like', learning_likes_path(@learning), action: :create, method: :post %>
+<%- end -%>
 
 <% @comments.each do |comment| %>
-<p><%= comment.body %></p>
+<p><%= comment.body %> &mdash; <%= comment.user.display_name %></p>
 <% end %>
 
 <%= simple_form_for [@learning, @comment] do |f| %>

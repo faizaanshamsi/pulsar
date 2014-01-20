@@ -12,6 +12,10 @@ class LearningsController < ApplicationController
     end
   end
 
+  def index
+    @recent_learnings = Learning.order(:created_at).limit(10)
+  end
+
   def new
     @learning = Learning.new
   end
@@ -20,6 +24,7 @@ class LearningsController < ApplicationController
     @learning = Learning.find(params[:id])
     @comment = Comment.new
     @comments = @learning.comments
+    @user = current_user
   end
 
   private
