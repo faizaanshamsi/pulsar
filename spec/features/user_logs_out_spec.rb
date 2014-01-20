@@ -33,6 +33,12 @@ so that I can protect my privacy
 
       current_path.should == root_path
     end
+
+    it 'should not allow new users to any path other than root' do
+      visit learnings_path
+
+      current_path.should == root_path
+    end
   end
 
 end
