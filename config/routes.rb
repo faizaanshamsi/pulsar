@@ -6,6 +6,8 @@ Pulsar::Application.routes.draw do
 
   get '/auth/:provider/callback', to: 'users#create'
 
+  get '/users', to: 'users#user_log_out'
+
   root 'learnings#index'
 
 end

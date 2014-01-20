@@ -11,4 +11,14 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def user_log_out
+    session.delete(:current_user_id)
+    if session[:current_user_id] == nil
+      flash[:notice] = "You have successfully logged out."
+    else
+      flash[:error] = "Error! You may not be signed out."
+    end
+    redirect_to root_path
+  end
 end

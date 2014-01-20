@@ -7,7 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to 'Sign In With GitHub', '/auth/github' %>
+  <% unless current_user %>
+    <%= button_to 'Sign In With GitHub', '/auth/github', method: :get %>
+  <% else %>
+    <%= button_to 'Sign Out', 'users#user_log_out', action: :user_log_out, method: :get %>
+  <% end %>
 
   <% flash.each do |name, msg| -%>
     <%= content_tag :div, msg, class: name %>
