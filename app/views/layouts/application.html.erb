@@ -10,7 +10,7 @@
   <% unless current_user %>
     <%= button_to 'Sign In With GitHub', '/auth/github', method: :get %>
   <% else %>
-    <%= button_to 'Sign Out', logout_path, method: :put %>
+    <%= button_to 'Sign Out', log_out_path, method: :put %>
   <% end %>
 
   <% flash.each do |name, msg| -%>
