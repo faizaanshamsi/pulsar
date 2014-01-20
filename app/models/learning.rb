@@ -6,10 +6,10 @@ class Learning < ActiveRecord::Base
   has_many :likes, inverse_of: :learning, dependent: :destroy
 
   def like_exists?(user)
-    which_like(user) != nil ? true : false
+    find_like(user) != nil ? true : false
   end
 
-  def which_like(user)
+  def find_like(user)
     Like.find_by(user_id: user, learning_id: self)
   end
 end

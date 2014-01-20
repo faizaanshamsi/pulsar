@@ -4,7 +4,7 @@
 
 
 <%- if @learning.like_exists?(@user) -%>
-  <%= button_to 'Unlike', learning_like_path(@learning, @learning.which_like(@user)), action: :destroy, method: :delete %>
+  <%= button_to 'Unlike', learning_like_path(@learning, @learning.find_like(@user)), action: :destroy, method: :delete %>
 <%- else -%>
   <%= button_to 'Like', learning_likes_path(@learning), action: :create, method: :post %>
 <%- end -%>
