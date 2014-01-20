@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def user_log_out
+  def log_out
     session.delete(:current_user_id)
     if session[:current_user_id] == nil
       flash[:notice] = "You have successfully logged out."
