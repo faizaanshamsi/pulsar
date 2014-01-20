@@ -18,7 +18,7 @@ feature "User creates a learning", %q{
       user = FactoryGirl.create(:user)
       set_omniauth(user)
       visit root_path
-      click_link_or_button 'Sign In'
+      click_on 'Sign In'
       visit new_learning_path
       fill_in "I learned", with: "Lorem ipsum."
       fill_in "URL", with: "http://www.example.com"
@@ -34,8 +34,12 @@ feature "User creates a learning", %q{
   context "with invalid input" do
     it "throws an error" do
       count = Learning.all.count
+      user = FactoryGirl.create(:user)
+      set_omniauth(user)
+      visit root_path
+      click_on 'Sign In'
       visit new_learning_path
-      fill_in "URL", with: "screw you hippie"
+      fill_in "URL", with: "http://www.example.com"
       click_on "Share"
 
       expect(page).to have_content("Error")

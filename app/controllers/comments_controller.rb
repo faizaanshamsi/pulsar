@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate_user
 
   def create
     @learning = Learning.find(params[:learning_id])

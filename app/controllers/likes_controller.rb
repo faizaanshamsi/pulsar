@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_filter :authenticate_user
 
   def create
     @like = Like.new(learning_id: params[:learning_id], user_id: current_user.id)

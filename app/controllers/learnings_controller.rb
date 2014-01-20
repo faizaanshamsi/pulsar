@@ -1,4 +1,5 @@
 class LearningsController < ApplicationController
+  before_filter :authenticate_user
 
   def create
     @learning = Learning.new(learning_params)

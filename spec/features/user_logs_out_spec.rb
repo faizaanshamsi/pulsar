@@ -31,7 +31,6 @@ so that I can protect my privacy
       click_on 'Sign Out'
       visit learnings_path
 
-      expect(page).to have_content "You must be logged in."
       current_path.should == root_path
     end
   end

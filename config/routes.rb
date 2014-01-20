@@ -8,6 +8,6 @@ Pulsar::Application.routes.draw do
 
   get '/users', to: 'users#user_log_out'
 
-  root 'learnings#index'
+  root 'pages#index'
 
 end
