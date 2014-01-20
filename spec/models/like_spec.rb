@@ -9,10 +9,12 @@ describe Like do
   end
 
   describe "Validation Tests" do
-    it { should validate_numericality_of(:user_id).only_integer }
-    it { should validate_numericality_of(:learning_id).only_integer }
+    it { should validate_presence_of(:user) }
+    it { should validate_presence_of(:learning) }
     it 'should validate uniqueness of user learning pair' do
-      Like.create!(user_id: 4, learning_id: 4)
+      user = FactoryGirl.create(:user)
+      learning = FactoryGirl.create(:learning, user: user)
+      FactoryGirl.create(:like, learning: learning, user: user)
       should validate_uniqueness_of(:user_id).scoped_to(:learning_id)
     end
   end

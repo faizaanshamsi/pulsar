@@ -11,7 +11,8 @@ describe Comment do
     it { should have_valid(:body).when("Blah blah") }
     it { should_not have_valid(:body).when(nil, "") }
 
-    it { should validate_numericality_of(:learning_id).only_integer }
+    it { should validate_presence_of(:learning) }
+    it { should validate_presence_of(:user) }
   end
 
   describe "Association Tests" do

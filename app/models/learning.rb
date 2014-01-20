@@ -1,5 +1,6 @@
 class Learning < ActiveRecord::Base
   validates_presence_of :content
+  validates_presence_of :user
 
   has_many :comments, inverse_of: :learning, dependent: :destroy
   belongs_to :user, inverse_of: :learnings

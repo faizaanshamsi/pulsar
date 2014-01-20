@@ -11,4 +11,9 @@ FactoryGirl.define do
     content 'awesome stuff'
   end
 
+  factory :like do
+    user
+    learning
+  end
+
 end

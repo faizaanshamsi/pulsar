@@ -11,11 +11,13 @@ describe Learning do
   describe "Validation Tests" do
     it { should have_valid(:content).when("Blah blah") }
     it { should_not have_valid(:content).when(nil, "") }
+    it { should validate_presence_of(:user) }
   end
 
   describe "Association Tests" do
     it { should have_many(:comments).dependent(:destroy) }
     it { should have_many(:likes).dependent(:destroy) }
+    it { should belong_to(:user) }
   end
 
 end
