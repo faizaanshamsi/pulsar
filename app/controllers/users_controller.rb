@@ -21,4 +21,27 @@ class UsersController < ApplicationController
     end
     redirect_to root_path
   end
+
+  def show
+    @user = User.find(params[:id])
+    @users_recent_learnings = @user.learnings.order(:created_at).limit(10)
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:notice] = "Success! Your profile has been updated."
+      redirect_to user_path(@user)
+    else
+      flash.now[:error] = "Unable to update profile. Please check input and retry."
+      render 'show'
+    end
+  end
+
+  protected
+
+  def user_params
+    params.require(:user).permit(:display_name)
+  end
+
 end

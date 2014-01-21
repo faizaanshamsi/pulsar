@@ -4,6 +4,8 @@ Pulsar::Application.routes.draw do
     resources :comments
   end
 
+  resources :users, only: [:show, :update]
+
   get '/auth/:provider/callback', to: 'users#create'
 
   put 'log_out', to: 'users#log_out'
