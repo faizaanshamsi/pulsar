@@ -1,7 +1,9 @@
 <h1><%= @user.display_name %></h1>
+<h3><%= @user.name %></h3>
 
+<h5>Recent Learnings:</h5>
 <ul>
-  <% @user.learnings.each do |learning| %>
+  <% @users_recent_learnings.each do |learning| %>
     <li><%= learning.content %></li>
   <% end %>
 </ul>

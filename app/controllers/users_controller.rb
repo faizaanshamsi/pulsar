@@ -24,5 +24,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @users_recent_learnings = @user.learnings.order(:created_at).limit(10)
   end
 end

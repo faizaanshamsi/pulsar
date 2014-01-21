@@ -14,7 +14,7 @@ feature "User views user profile", %q{
 
   scenario "user views a valid profile" do
       user1 = FactoryGirl.create(:user)
-      user2 = FactoryGirl.create(:user, github_uid: '9876', display_name: 'bar', name: 'bar')
+      user2 = FactoryGirl.create(:user, github_uid: '9876', display_name: 'bar', name: 'baz')
       learning = FactoryGirl.create(:learning, user: user2)
       set_omniauth(user1)
       visit root_path
