@@ -1,0 +1,7 @@
+<h1><%= @user.display_name %></h1>
+
+<ul>
+  <% @user.learnings.each do |learning| %>
+    <li><%= learning.content %></li>
+  <% end %>
+</ul>
