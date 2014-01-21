@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def create
     @user = GithubAuthenticator.authenticate(env['omniauth.auth'])
     if @user.save
-      session[:img_url] = env['omniauth.auth']['info']['image']
+      session[:img_url] = env['omniauth.auth']['info']['image'].split('?')[0] + '?s=200'
       session[:current_user_id] = @user.id
       flash[:notice] = t('.success')
       redirect_to root_path
