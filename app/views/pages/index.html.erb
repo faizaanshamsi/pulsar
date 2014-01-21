@@ -1,1 +1,63 @@
-<p>Here is some content.</p>
+<div id="hello">
+    <div class="container">
+      <div class="row">
+        <div class="transparent-box col-lg-8 col-lg-offset-2 centered">
+          <h1>Pulsar</h1>
+          <h2>if learn + 1 == true { |x| x.post } :)</h2>
+          <div class="row">
+            <% unless current_user %>
+              <%= button_to 'Login With GitHub', '/auth/github', method: :get, class: "col-lg-6 col-lg-offset-3 btn btn-success btn-lg centered github-button" %>
+            <% else %>
+              <%= button_to 'Browse learnings', learnings_path, method: :get, action: :index, class: "col-lg-6 col-lg-offset-3 btn btn-warning btn-lg centered github-button" %>
+            <% end %>
+          </div>
+         
+        </div><!-- /col-lg-8 -->
+      </div><!-- /row -->
+    </div> <!-- /container -->
+</div><!-- /hello -->
+
+<div class="white">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 centered">
+        <i class="fa fa-lightbulb-o fa-5x light-gray"></i>
+      </div>
+      
+      <div class="col-lg-8 col-lg-offset-2 centered">
+        <h3>What have you learned today?</h3>
+        <p>Share your AHA! moments with your fellow peers.<br> Browse through the learnings from your cohort and comment on each other's learnings!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="white second">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 centered">
+        <i class="fa fa-thumbs-up fa-5x light-gray"></i>
+      </div>
+      
+      <div class="col-lg-8 col-lg-offset-2 centered">
+        <h3>Like Other Learnings!</h3>
+        <p>Did you find a peer's learning very useful? Are there other learnings that you can really relate with?<br> Show your support by liking other learnings!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="white third">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 centered">
+        <i class="fa fa-github-alt fa-5x light-gray"></i>
+      </div>
+      
+      <div class="col-lg-8 col-lg-offset-2 centered">
+        <h3>GitHub Enabled</h3>
+        <p>No need to sign up! Connect with your GitHub and get started right away!</p>
+      </div>
+    </div>
+  </div>
+</div>
