@@ -31,7 +31,7 @@ class LearningsController < ApplicationController
   private
 
   def learning_params
-    params.require(:learning).permit(:content, :url, :user_id)
+    params.require(:learning).permit(:content, :url)
   end
 
 end
