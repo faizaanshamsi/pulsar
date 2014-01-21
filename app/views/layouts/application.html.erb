@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Pulsar</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap core CSS -->
@@ -11,7 +11,7 @@
   <!-- Custom styles for this template -->
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
 </head>
 <body>
 
@@ -19,6 +19,7 @@
   <%= render 'layouts/flash_messages' %>
   <%= yield %>
   <%= render 'layouts/footer' %>
+  <%= javascript_include_tag "application" %>
 
 </body>
 </html>
