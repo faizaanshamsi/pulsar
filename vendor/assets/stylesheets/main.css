@@ -12,6 +12,13 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700,900);
 
 /* OVERALL ASPECT */
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
 
 body {
   background-color: #f2f2f2;
@@ -254,17 +261,7 @@ a:after {
 	padding:30px;
 }
 
-/* Footer */
-#f {
-	padding-top: 20px;
-	background-color: black;
-}
 
-#f p {
-	color: #24B0FF;
-	text-align: center;
-	font-weight: 400;
-}
 
 
 /* Image Opacity */

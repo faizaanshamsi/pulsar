@@ -1,7 +1,29 @@
-<p><%= link_to 'One Thing I Learned...', new_learning_path %></p>
+<div class="learning-index">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 centered">
+        <h1 class="learning-show">Learnings @ Launch</h1>
+          <ul class="learnings">
+            <%- unless @recent_learnings == nil -%>
+              <% @recent_learnings.each do |learning| %>
+                <li class="learn-listing">
+                  <i class="fa fa-rocket fa-1x" style="color:#FA58F4"></i>
+                  <%= learning.user.display_name %> learned 
+                  <%= link_to "#{learning.content.truncate(26)}", learning_path(learning) %>
+                  <i class="fa fa-thumbs-up fa-1x light-gray"></i>
+                  <%= learning.likes_count %> 
+                </li>
+              <% end %>
+            <%- end -%>
+            <li class="learn-listing new">
+              <i class="fa fa-lightbulb-o fa-1x light-gray"></i>
+              <%= link_to 'I learned...', new_learning_path %>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%- unless @recent_learnings == nil -%>
-  <% @recent_learnings.each do |learning| %>
-    <p><%= learning.content %> &mdash; <%= learning.user.display_name %></p>
-  <% end %>
-<%- end -%>
+
+

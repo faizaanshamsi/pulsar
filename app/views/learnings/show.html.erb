@@ -1,21 +1,37 @@
-<p><%= @learning.content %></p>
+<div class="create-learning">
+  <div class="container">
+    <div class="row">
 
-<p>+<%= @learning.likes.size %></p>
+      <div class="col-lg-12 centered">
+        <h1 class="learning-title"><i class="fa fa-rocket fa-1x" style="color:#FA58F4"></i> 
+          <%= @learning.user.display_name %> learned...</h1>
+        <p class="learning-content">
+          <%= @learning.content %>
+        </p>
+
+        <h1 class="comment-title"><a class="fa fa-thumbs-up fa-1x light-gray"></a>
+        <%= @learning.likes.size %><br><br>Comments</h1>
+        <% @comments.each do |comment| %>
+        <p class="comments"><%= comment.body %> &mdash; 
+        <i class="fa fa-rocket fa-1x" style="color:#FA58F4"></i> 
+        <%= comment.user.display_name %></p>
+        <% end %>
+
+        <div class="row comment-row">
+          <%= simple_form_for [@learning, @comment] do |f| %>
+            <%= f.input :body, label: 'Comment', :input_html => { :value => "Got something to say?", :class => "comment-textarea" } %>
+            <input class="btn btn-primary btn-lg share" name="commit" type="submit" value="Submit Comment">
+          <% end %>
+        </div>
+<!-- 
+        <%- if @learning.like_exists?(@user) -%>
+          <%= button_to 'Unlike', learning_like_path(@learning, @learning.find_like(@user)), action: :destroy, method: :delete %>
+        <%- else -%>
+          <%= button_to 'Like', learning_likes_path(@learning), action: :create, method: :post %>
+        <%- end -%> -->
+      </div>
+    </div>
+  </div>
 
 
-<%- if @learning.like_exists?(@user) -%>
-  <%= button_to 'Unlike', learning_like_path(@learning, @learning.find_like(@user)), action: :destroy, method: :delete %>
-<%- else -%>
-  <%= button_to 'Like', learning_likes_path(@learning), action: :create, method: :post %>
-<%- end -%>
 
-<% @comments.each do |comment| %>
-<p><%= comment.body %> &mdash; <%= comment.user.display_name %></p>
-<% end %>
-
-<%= simple_form_for [@learning, @comment] do |f| %>
-
-  <%= f.input :body, label: 'Comment' %>
-  <%= f.button :submit, 'Submit Comment' %>
-
-<% end %>
