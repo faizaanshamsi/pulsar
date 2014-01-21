@@ -26,7 +26,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users_recent_learnings = @user.learnings.order(:created_at).limit(10)
-    @img_url = @user.gravatar + '?s=200'
+    if @user.gravatar == nil
+      @img_url = 'http://gravatar.com/avatar/00000000000000000000000000000000?s=200'
+    else
+      @img_url = @user.gravatar + '?s=200'
+    end
   end
 
   def update
