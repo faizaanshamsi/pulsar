@@ -1,0 +1,18 @@
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <h2>Pulsar</h2>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <% unless current_user %>
+            <%= button_to 'Sign In With GitHub', '/auth/github', method: :get %>
+          <% else %>
+            <%= button_to 'Sign Out', log_out_path, method: :put %>
+          <% end %>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
