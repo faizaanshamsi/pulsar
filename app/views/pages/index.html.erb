@@ -5,7 +5,11 @@
           <h1>Pulsar</h1>
           <h2>if learn + 1 == true { |x| x.post } :)</h2>
           <div class="row">
-            <a class="col-lg-6 col-lg-offset-3 btn btn-success btn-lg centered github-button" href="#">Login with Github</a>
+            <% unless current_user %>
+              <%= button_to 'Login With GitHub', '/auth/github', method: :get, class: "col-lg-6 col-lg-offset-3 btn btn-success btn-lg centered github-button" %>
+            <% else %>
+              <%= button_to 'Browse learnings', learnings_path, method: :get, action: :index, class: "col-lg-6 col-lg-offset-3 btn btn-warning btn-lg centered github-button" %>
+            <% end %>
           </div>
          
         </div><!-- /col-lg-8 -->
