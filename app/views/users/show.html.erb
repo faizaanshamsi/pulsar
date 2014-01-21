@@ -1,5 +1,6 @@
 <h1><%= @user.display_name %></h1>
 <h3><%= @user.name %></h3>
+<img src="<%= @img_url %>">
 <%- if current_user == @user -%>
   <%= simple_form_for(@user) do |f| %>
     <%= f.input :display_name, label: "Username" %>
