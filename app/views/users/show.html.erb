@@ -1,9 +1,19 @@
 <h1><%= @user.display_name %></h1>
 <h3><%= @user.name %></h3>
-
+<%- if current_user == @user -%>
+  <%= simple_form_for(@user) do |f| %>
+    <%= f.input :display_name, label: "Username" %>
+    <%= f.submit 'Save' %>
+  <% end %>
+<%- end -%>
 <h5>Recent Learnings:</h5>
+
+<%- if @users_recent_learnings == nil -%>
+  <p>None! Why haven't you learned anything recently?</p>
+<%- else -%>
 <ul>
   <% @users_recent_learnings.each do |learning| %>
     <li><%= learning.content %></li>
   <% end %>
 </ul>
+<%- end -%>
