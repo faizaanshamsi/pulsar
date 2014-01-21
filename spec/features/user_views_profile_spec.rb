@@ -27,6 +27,14 @@ feature "User views user profile", %q{
     end
 
 
-  scenario "user attempts to view the profile of a nonexistent user"
+  scenario "user attempts to view the profile of a nonexistent user" do
+    user = FactoryGirl.create(:user)
+    set_omniauth(user)
+    visit root_path
+    click_on 'Sign In'
+
+    my_id = user.id
+    expect { visit "/users/#{my_id + 1}" }.to raise_error(ActiveRecord::RecordNotFound)
+  end
 
 end
