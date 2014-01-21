@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def create
     @user = GithubAuthenticator.authenticate(env['omniauth.auth'])
     if @user.save
+      session[:img_url] = env['omniauth.auth']['info']['image'].split('?')[0] + '?s=200'
       session[:current_user_id] = @user.id
       flash[:notice] = t('.success')
       redirect_to root_path
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users_recent_learnings = @user.learnings.order(:created_at).limit(10)
+    @img_url = session[:img_url]
   end
 
   def update
