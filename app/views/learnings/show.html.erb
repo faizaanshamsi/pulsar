@@ -9,8 +9,16 @@
           <%= @learning.content %>
         </p>
 
-        <h1 class="comment-title"><a class="fa fa-thumbs-up fa-1x light-gray"></a>
-        <%= @learning.likes.size %><br><br>Comments</h1>
+        <h1 class="comment-title">
+          <%= @learning.likes.size %>
+          <i class="fa fa-thumbs-up fa-1x light-gray"></i>
+          <%- if @learning.like_exists?(@user) -%>
+            <%= button_to 'like', learning_like_path(@learning, @learning.find_like(@user)), action: :destroy, method: :delete, class: "btn btn-success" %>
+          <%- else -%>
+            <%= button_to 'unlike', learning_likes_path(@learning), action: :create, method: :post, class: "btn btn-warning" %>
+          <%- end -%>
+          <br><br><br>Comments
+        </h1>
         <% @comments.each do |comment| %>
         <p class="comments"><%= comment.body %> &mdash; 
         <i class="fa fa-rocket fa-1x" style="color:#FA58F4"></i> 
@@ -19,16 +27,13 @@
 
         <div class="row comment-row">
           <%= simple_form_for [@learning, @comment] do |f| %>
-            <%= f.input :body, label: 'Comment', :input_html => { :value => "Got something to say?", :class => "comment-textarea" } %>
+            <%= f.input :body, label: false, :input_html => { :value => "Got something to say?", :class => "comment-textarea" } %>
+            <div class="row"></div>
             <input class="btn btn-primary btn-lg share" name="commit" type="submit" value="Submit Comment">
           <% end %>
         </div>
-<!-- 
-        <%- if @learning.like_exists?(@user) -%>
-          <%= button_to 'Unlike', learning_like_path(@learning, @learning.find_like(@user)), action: :destroy, method: :delete %>
-        <%- else -%>
-          <%= button_to 'Like', learning_likes_path(@learning), action: :create, method: :post %>
-        <%- end -%> -->
+
+
       </div>
     </div>
   </div>

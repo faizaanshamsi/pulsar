@@ -128,7 +128,6 @@ textarea {
 }
 
 .share {
-  display: inline-block;
   margin-left: 0 !important;
 }
 
@@ -185,12 +184,45 @@ textarea {
 
 .comment-textarea {
   height: 80px;
+  float: left;
 }
 
 .comment-row {
   margin-top: 70px;
 }
 
+.button-row {
+  float: left;
+}
+
+/* Profile */
+
+.profile-greeting {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 54px;
+}
+
+.profile-picture {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  border: 4px solid;
+  height: 50%;
+  width: 50%;
+}
+
+.username-textarea {
+  height: 30px;
+  width: 45%;
+  border-radius: 8px;
+  border: 4px solid;
+}
+
+.save {
+  width: 20%;
+  height: 10%;
+}
 /* Footer */
 .footer {
   padding-top: 20px;
