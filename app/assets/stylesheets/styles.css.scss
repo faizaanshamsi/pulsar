@@ -35,7 +35,7 @@
   text-align: left;
   font-size: 65px;
   margin-bottom: 58px;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .learn-listing.new {
@@ -159,14 +159,14 @@ textarea {
 
 /* Show a Learning Page */
 .learning-title {
-  margin-top: 70px;
+  margin-top: 50px;
   font-size: 40px;
 }
 
 .learning-content {
   margin-top: 30px;
-  margin-bottom: 120px;
-  font-size: 30px;
+  margin-bottom: 6%;
+  font-size: 25px;
   line-height: 100%;
   text-align: left;
 }
@@ -178,22 +178,28 @@ textarea {
 }
 
 .comments {
-  font-size: 21px;
+  font-size: 20px;
   text-align: left;
 }
 
 .comment-textarea {
   height: 80px;
   float: left;
+  margin-left: 1%;
 }
 
 .comment-row {
-  margin-top: 70px;
+  margin-top: 3%;
 }
 
 .button-row {
   float: left;
 }
+
+.submit-btn {
+  margin-bottom: 8%;
+}
+
 
 /* Profile */
 
