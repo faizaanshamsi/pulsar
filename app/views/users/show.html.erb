@@ -1,20 +1,18 @@
-<h1><%= @user.display_name %></h1>
-<h3><%= @user.name %></h3>
-<img src="<%= @img_url %>">
-<%- if current_user == @user -%>
-  <%= simple_form_for(@user) do |f| %>
-    <%= f.input :display_name, label: "Username" %>
-    <%= f.submit 'Save' %>
-  <% end %>
-<%- end -%>
-<h5>Recent Learnings:</h5>
-
-<%- if @users_recent_learnings == nil -%>
-  <p>None! Why haven't you learned anything recently?</p>
-<%- else -%>
-<ul>
-  <% @users_recent_learnings.each do |learning| %>
-    <li><%= learning.content %></li>
-  <% end %>
-</ul>
-<%- end -%>
+<div class="learning-index">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 centered">
+        <h1 class="profile-greeting">Hello <%= @user.display_name %>!</h1>
+        <img src="<%= @img_url %>" class="profile-picture">
+        <div class="row">
+          <%- if current_user == @user -%>
+            <%= simple_form_for(@user) do |f| %>
+              <%= f.input :display_name, label: false, :input_html => { value: "Change username", class: "username-textarea" } %>
+              <input class="btn btn-info btn-lg save" name="save" type="submit" value="Save">
+            <% end %>
+          <%- end -%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -16,8 +16,11 @@
 <body>
 
   <%= render 'layouts/navigation' %>
-  <%= render 'layouts/flash_messages' %>
-  <%= yield %>
+  <section id="wrapper">
+    <%= render 'layouts/flash_messages' %>
+    <%= yield %>
+    <div class="push"></div>
+  </section>
   <%= render 'layouts/footer' %>
 
 </body>

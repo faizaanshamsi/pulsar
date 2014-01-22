@@ -1,7 +1,23 @@
-<h1>One Thing I Learned</h1>
+<div class="create-learning">
+  <div class="container">
+    <div class="row">
+<!--       <div class="col-lg-8 col-lg-offset-2 centered">
+        <i class="fa fa-lightbulb-o fa-5x light-gray"></i>
+      </div> -->
+      
+      <div class="col-lg-8 col-lg-offset-2 centered">
+        <h1 class="learning-show">
+          <i class="fa fa-lightbulb-o fa-1x" style="color:orange"></i> I learned...
+        </h1>
 
-<%= simple_form_for @learning do |f| %>
-  <%= f.input :content, label: 'I learned' %>
-  <%= f.input :url, label: 'URL' %>
-  <%= f.button :submit, 'Share' %>
-<% end %>
+        <%= simple_form_for @learning do |f| %>
+          <%= f.input :content, label: 'I learned' %>
+          <div class="row comment-row">
+            <%= f.input :url, :input_html => { :value => "Any helpful links go here!", :class => "url-box" } %>
+            <input class="btn btn-info btn-lg share" name="commit" type="submit" value="Share">
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

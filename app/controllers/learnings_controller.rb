@@ -14,7 +14,7 @@ class LearningsController < ApplicationController
   end
 
   def index
-    @recent_learnings = Learning.order(:created_at).limit(10)
+    @recent_learnings = Learning.order(:created_at).reverse_order.limit(10)
   end
 
   def new
