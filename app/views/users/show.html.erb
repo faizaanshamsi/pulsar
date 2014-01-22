@@ -7,10 +7,26 @@
         <div class="row">
           <%- if current_user == @user -%>
             <%= simple_form_for(@user) do |f| %>
-              <%= f.input :display_name, label: false, :input_html => { value: "Change username", class: "username-textarea" } %>
+              <%= f.input :display_name, label: false, placeholder: "Change username", :input_html => { class: "username-textarea" } %>
               <input class="btn btn-info btn-lg save" name="save" type="submit" value="Save">
             <% end %>
           <%- end -%>
+        </div>
+        <div class="row comment-row">
+          <h2>What I learned Recently:</h2>
+          <ul class="learnings">
+            <%- unless @users_recent_learnings == nil -%>
+              <% @users_recent_learnings.each do |learning| %>
+                <li class="learn-listing">
+                  <i class="fa fa-rocket fa-1x" style="color:#FA58F4"></i>
+                  I learned 
+                  <%= link_to "#{learning.content.truncate(26)}", learning_path(learning) %>
+                  <i class="fa fa-thumbs-up fa-1x light-gray"></i>
+                  <%= learning.likes_count %> 
+                </li>
+              <% end %>
+            <%- end -%>
+          </ul>
         </div>
       </div>
     </div>
