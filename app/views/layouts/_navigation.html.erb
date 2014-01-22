@@ -1,28 +1,42 @@
-<div class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="row">
-      <div class="navbar-header">
-        <%= link_to root_path, class: "h2" do %>
-            Pulsar
-          <%- end -%>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li>
-            TEST
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <% unless current_user %>
-              <%= button_to 'Sign In With GitHub', '/auth/github', method: :get, class: "btn btn-success btn-med nav-btn" %>
-            <% else %>
-
-              <%= button_to 'Sign Out', log_out_path, method: :put, class: "btn btn-danger btn-med nav-btn" %>
-            <% end %>
-          </li>
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      Pulsar
+    <%- end -%>
   </div>
-</div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <% if current_user %>
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to "New Learning", new_learning_path %>
+        </li>
+        <li>
+          <%= link_to "Recent Learnings", learnings_path %>
+        </li>
+      </ul>
+    <% end %>
+    <ul class="nav navbar-nav navbar-right">
+      <% unless current_user %>
+        <li>
+          <%= link_to 'Sign In With GitHub', '/auth/github', method: :get %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "My Profile", user_path(current_user) %>
+        </li>
+        <li>
+          <%= link_to 'Sign Out', log_out_path, method: :put %>
+        </li>
+      <% end %>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
