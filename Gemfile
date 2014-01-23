@@ -20,15 +20,16 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-
 gem 'simple_form'
 
 gem 'omniauth-github', git: 'git://github.com/intridea/omniauth-github.git'
+
+gem 'bootstrap-sass'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -51,6 +52,10 @@ group :development do
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'quiet_assets'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 ruby "2.0.0"
