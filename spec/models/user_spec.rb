@@ -17,7 +17,7 @@ describe User do
     it { should have_valid(:name).when("Blah blah") }
     it { should_not have_valid(:name).when(nil, "") }
 
-    # it { should validate_uniqueness_of(:display_name) }
+    it { should ensure_length_of(:display_name).is_at_most(39) }
 
   end
 
