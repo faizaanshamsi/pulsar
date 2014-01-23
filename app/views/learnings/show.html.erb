@@ -4,10 +4,16 @@
 
       <div class="col-lg-12 centered">
         <h1 class="learning-title"><i class="fa fa-rocket fa-1x" style="color:#FA58F4"></i> 
-          <%= @learning.user.display_name %> learned...</h1>
+          <%= link_to "#{@learning.user.display_name}", user_path(@learning.user) %> learned...
+        </h1>
         <p class="learning-content">
           <%= @learning.content %>
         </p>
+
+        <p class="helpful-link">
+          <%= link_to "#{@learning.url}", @learning.url %>
+        </p>
+
 
         <h1 class="comment-title">
           <%= @learning.likes.size %>
@@ -21,27 +27,36 @@
         </h1>
         <% @comments.each do |comment| %>
         <p class="comments"><%= comment.body %> &mdash; 
-        <i class="fa fa-rocket fa-1x" style="color:#FA58F4"></i> 
-        <%= comment.user.display_name %></p>
+          <i class="fa fa-rocket fa-1x" style="color:#FA58F4"></i> 
+          <%= link_to "#{comment.user.display_name}", user_path(comment.user) %>
+        </p>
         <% end %>
 
+
         <div class="row comment-row">
-          <%= simple_form_for [@learning, @comment] do |f| %>
-            <%= f.input :body, label: false, :input_html => { :value => "Got something to say?", :class => "comment-textarea" } %>
-            <div class="row"></div>
-            <div class="row">
-              <div class="span1">
-                <input class="btn btn-primary btn-lg" name="commit" type="submit" value="Submit Comment">
+          <%= simple_form_for [@learning, @comment], html:{ class: 'form-horizontal form', role: 'form'} do |f| %>
+            <div class="form-group">
+              <div class="col-sm-10">
+                <%= f.input :body, label: false, placeholder: 'Got something to say?', :input_html => { :class => "comment-textarea" } %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-2">
+                <button type="submit" class="btn btn-primary btn-lg sub-comment">Submit Comment</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-2">
+                <%= link_to "Back to Learnings Page", learnings_path %>
               </div>
             </div>
           <% end %>
         </div>
 
-        
-
       </div>
     </div>
   </div>
+</div>
 
 
 

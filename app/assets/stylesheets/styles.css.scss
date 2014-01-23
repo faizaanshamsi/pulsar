@@ -1,3 +1,6 @@
+/* Navbar Colors */
+
+
 /* Root page */
 
 #logo-text {
@@ -118,17 +121,23 @@ textarea {
   border-radius: 8px;
   width: 80%;
   height: 200px;
-  border: 4px solid;
+  border: 2px solid #504A4B;
 }
 
 .url-box {
-  width: 80%;
-  border: 4px solid;
+  width: 77%;
+  border: 2px solid #504A4B;
   border-radius: 8px;
 }
 
 .share {
-  margin-left: 0 !important;
+  margin-left: 0px !important;
+}
+
+.sub-comment {
+  position: relative;
+  margin-left: 10px;
+  float: left;
 }
 
 /* Wrapper */
@@ -167,6 +176,14 @@ textarea {
   margin-top: 30px;
   margin-bottom: 6%;
   font-size: 25px;
+  line-height: 100%;
+  text-align: left;
+}
+
+.helpful-link {
+  margin-top: 30px;
+  margin-bottom: 6%;
+  font-size: 20px;
   line-height: 100%;
   text-align: left;
 }
@@ -214,13 +231,13 @@ textarea {
   margin-bottom: 20px;
   border-radius: 30px;
   border: 4px solid;
-  height: 50%;
-  width: 50%;
+  height: 30%;
+  width: 30%;
 }
 
 .username-textarea {
   height: 30px;
-  width: 45%;
+  width: 28%;
   border-radius: 8px;
   border: 4px solid;
 }
@@ -228,6 +245,12 @@ textarea {
 .save {
   width: 20%;
   height: 10%;
+}
+
+.save-btn {
+  margin-top: 1%;
+  position: relative;
+  margin-bottom: -1%;
 }
 /* Footer */
 .footer {

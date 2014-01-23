@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(version: 20140121190535) do
   end
 
   create_table "learnings", force: true do |t|
-    t.text     "content",     null: false
+    t.text     "content",                 null: false
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "likes_count"
+    t.integer  "likes_count", default: 0
   end
 
   create_table "likes", force: true do |t|

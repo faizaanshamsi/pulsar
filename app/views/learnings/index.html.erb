@@ -9,7 +9,7 @@
                 <li class="learn-listing">
                   <i class="fa fa-rocket fa-1x" style="color:#FA58F4"></i>
                   <%= learning.user.display_name %> learned 
-                  <%= link_to "#{learning.content.truncate(26)}", learning_path(learning) %>
+                  <%= link_to "#{learning.content.truncate(20)}", learning_path(learning) %>
                   <i class="fa fa-thumbs-up fa-1x light-gray"></i>
                   <%= learning.likes_count %> 
                 </li>
