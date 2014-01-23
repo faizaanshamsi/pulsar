@@ -20,7 +20,7 @@ so that I can protect my privacy
 
       expect(page).to have_content 'You have successfully logged out'
       expect(page).to_not have_button 'Sign Out'
-      expect(page).to have_button 'Sign In With GitHub'
+      expect(page).to have_link 'Sign In With GitHub'
     end
 
     it 'should not allow logged out user to use site' do

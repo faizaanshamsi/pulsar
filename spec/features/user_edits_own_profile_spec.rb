@@ -18,7 +18,7 @@ feature "User edits their own profile", %q{
     visit root_path
     click_on 'Sign In'
     visit user_path(user)
-    fill_in 'Username', with: 'Ann Perkins'
+    fill_in 'user_display_name', with: 'Ann Perkins'
     click_on 'Save'
 
     expect(page).to have_content('updated')
@@ -33,7 +33,7 @@ feature "User edits their own profile", %q{
     visit root_path
     click_on 'Sign In'
     visit user_path(user)
-    fill_in 'Username', with: ''
+    fill_in 'user_display_name', with: ''
     click_on 'Save'
 
     expect(page).to_not have_content('updated')
@@ -48,7 +48,7 @@ feature "User edits their own profile", %q{
     click_on 'Sign In'
     visit user_path(user2)
 
-    expect(page).to_not have_field('Username')
+    expect(page).to_not have_field('user_display_name')
     expect(page).to_not have_button('Save')
   end
 

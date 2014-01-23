@@ -22,7 +22,6 @@ feature "User views user profile", %q{
       visit user_path(user2)
 
       expect(page).to have_content(user2.display_name)
-      expect(page).to have_content(user2.name)
       expect(page).to have_content(learning.content)
     end
 

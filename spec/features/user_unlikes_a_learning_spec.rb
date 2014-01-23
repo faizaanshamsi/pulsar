@@ -19,13 +19,13 @@ feature 'user unlikes a learning', %q{
       click_link_or_button 'Sign In'
       learning = FactoryGirl.create(:learning, user: user)
       visit learning_path(learning)
-      click_on 'Like'
+      click_on 'like'
       count = Like.count
-      click_on 'Unlike'
+      click_on 'unlike'
 
       expect(page).to have_content learning.content
-      expect(page).to_not have_button 'Unlike'
-      expect(page).to have_button 'Like'
+      expect(page).to_not have_button 'unlike'
+      expect(page).to have_button 'like'
       expect(Like.count).to eq(count - 1)
     end
   end

@@ -21,7 +21,7 @@ feature "User creates a learning", %q{
       click_on 'Sign In'
       visit new_learning_path
       fill_in "I learned", with: "Lorem ipsum."
-      fill_in "URL", with: "http://www.example.com"
+      fill_in "Url", with: "http://www.example.com"
       click_on "Share"
 
       expect(page).to have_content("Lorem ipsum.")
@@ -39,7 +39,7 @@ feature "User creates a learning", %q{
       visit root_path
       click_on 'Sign In'
       visit new_learning_path
-      fill_in "URL", with: "http://www.example.com"
+      fill_in "Url", with: "http://www.example.com"
       click_on "Share"
 
       expect(page).to have_content("Error")

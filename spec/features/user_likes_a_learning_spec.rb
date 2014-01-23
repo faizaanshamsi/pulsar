@@ -21,11 +21,10 @@ feature 'user likes a learning', %q{
       click_link_or_button 'Sign In'
       learning = FactoryGirl.create(:learning, user: user)
       visit learning_path(learning)
-      click_on 'Like'
+      click_on 'like'
 
       expect(page).to have_content learning.content
-      expect(page).to_not have_button 'Like'
-      expect(page).to have_button 'Unlike'
+      expect(page).to have_button 'unlike'
       expect(page).to have_content(count + 1)
       expect(Like.count).to eq(count + 1)
       expect(Like.last.user).to eq(user)

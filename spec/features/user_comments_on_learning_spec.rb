@@ -21,7 +21,7 @@ feature 'user comments on learning', %q{
       click_link_or_button 'Sign In'
       learning = FactoryGirl.create(:learning, user: user)
       visit learning_path(learning)
-      fill_in 'Comment', with: 'woot!'
+      fill_in 'comment_body', with: 'woot!'
       click_on 'Submit Comment'
 
       expect(page).to have_content learning.content
