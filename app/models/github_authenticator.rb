@@ -2,10 +2,12 @@ class GithubAuthenticator
 
   def self.authenticate(env_hash)
     if correct_hash?(env_hash)
-      User.find_or_create_by(
-        github_uid: env_hash['uid'],
-        name: env_hash['info']['nickname'],
-        display_name: env_hash['info']['nickname'])
+      user = User.find_or_initialize_by(github_uid: env_hash['uid'])
+      unless user.valid?
+        user.name = env_hash['info']['nickname']
+        user.display_name = user.name
+      end
+      user
     else
       nil
     end
